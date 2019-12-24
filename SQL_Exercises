@@ -201,3 +201,61 @@ WHERE EMPLOYEE_ID=110 and department_id=10 and job_id not like 'IT%';
 insert into departments
 values(270,'random',120,(select location_id from locations where city='Tokyo'));
 
+41.
+select d.department_name,count(e.employee_id)
+from employees e join departments d
+using(department_id)
+group by d.department_name;
+
+42.
+select job_title,employee_id,end_date-start_date
+from job_history natural join jobs
+where department_id=30;
+
+43.
+select department_name,first_name
+from employees e join departments d
+on e.employee_id=d.manager_id;
+
+44.
+select d.department_name,e.first_name,l.city
+from employees e join departments d
+on e.employee_id=d.manager_id
+join locations l
+using(location_id);
+
+45.
+select d.department_name,c.country_name,l.city
+from departments d natural join locations l
+natural join countries c;
+
+46.
+select j.job_title,d.department_name,e.last_name,jh.start_date
+from employees e join departments d
+using(department_id)
+join jobs j
+using(job_id)
+join job_history jh
+using(job_id)
+where to_char(e.hire_date,'YYYY') between 2000 and 2005;
+
+47.
+select job_title,avg(salary)
+from jobs join employees 
+using(job_id)
+group by job_title;
+
+48.
+select j.job_title,e.first_name,j.max_salary-e.salary
+from jobs j natural join employees e;
+
+49.
+select e.last_name,j.job_title
+from employees e natural join jobs j
+where department_id=30 and commission_pct is not null;
+
+50.
+select * 
+from jobs
+where exists(select job_id from employees
+where salary>15000);
