@@ -1,0 +1,121 @@
+1.
+SELECT *
+FROM jobs
+where min_salary>10000;
+
+2.
+SELECT first_name,hire_date
+FROM employees
+where hire_date between '01-jan-1980' and '31-dec-1995';
+
+3.
+SELECT first_name,hire_date
+FROM employees
+where job_id in('IT_PROG', 'SA_MAN');
+
+4.
+SELECT *
+FROM employees
+where HIRE_DATE>'01-JAN-2008';
+
+5.
+SELECT *
+FROM employees
+where EMPLOYEE_ID IN(150,160);
+
+6.
+SELECT FIRST_NAME,SALARY,COMMISSION_PCT,hire_date
+FROM employees
+where SALARY<10000;
+
+7.
+SELECT job_title,(max_salary-min_salary)
+from jobs
+where max_salary between 10000 and 20000;
+
+8.
+select first_name,salary,round(salary,-3)
+from employees;
+
+9.
+select * 
+from jobs
+order by job_title desc;
+
+10.
+select *
+from employees
+where first_name like 'S%' or last_name like 'S%'; 
+
+11.
+select *
+from employees
+where to_char(hire_date,'mm')='05';
+
+12.
+select * 
+from employees
+where commission_pct is null and salary between 5000 and 11000 and department_id=30;
+
+13.
+select first_name,hire_date,add_months(last_day(hire_date), 1)
+from employees;
+
+14.
+select first_name,to_char(sysdate, 'yyyy') - to_char(hire_date,'yyyy')
+from employees;
+
+15.
+select first_name
+from employees
+where to_char(hire_date,'yyyy')='2001';
+
+16.
+select INITCAP(first_name),INITCAP(last_name)
+from employees;
+
+17.
+SELECT regexp_substr(job_title,'[A-z]*') first_name
+from jobs;
+
+18.
+select length(first_name)
+from employees
+where last_name like '___%b%';
+
+19.
+select upper(first_name),lower(email)
+from employees
+where lower(first_name)=lower(email);
+
+20.
+select *
+from employees
+where to_char(hire_date,'yyyy')=to_char(sysdate,'yyyy');
+
+21.
+select round(sysdate-TO_date('01/01/2011','DD/MM/YYYY'))
+from dual;
+
+22.
+SELECT count(to_char(hire_date,'Month')) as month_count 
+from employees
+group by hire_date
+having to_char(hire_date,'YYYY')=to_char(sysdate,'YYYY');
+
+23.
+select manager_id,count(employee_id) 
+from employees
+where manager_id is not null
+group by manager_id;
+
+24.
+select employee_id,hire_date-1 as end_date
+from employees;
+
+25.
+select count (*) as halfMonth
+from employees
+where to_char(hire_date,'DD')>'15';
+
+26.
