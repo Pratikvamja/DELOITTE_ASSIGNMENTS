@@ -119,3 +119,85 @@ from employees
 where to_char(hire_date,'DD')>'15';
 
 26.
+select country_id ,count(city)
+from locations
+group by country_id;
+
+27.
+select avg(salary)
+from employees
+where commission_pct is not null
+group by department_id;
+
+28.
+select job_id,count(employee_id),sum(salary),max(salary)-min(salary)
+from employees
+group by job_id;
+
+29.
+select job_id 
+from employees 
+group by job_id
+having avg(salary)>10000;
+
+30.
+select to_char(hire_date,'YYYY')
+from employees
+group by to_char(hire_date,'YYYY')
+having count(*)>10;
+
+31.
+select department_id
+from employees
+where commission_pct is not null
+group by department_id
+having count(*)>5;
+
+32.
+select employee_id
+from job_history
+group by employee_id
+having count(job_id)>1;
+
+33.
+select job_id
+from job_history
+where end_date-TO_date(start_date)>100
+group by job_id
+having count(employee_id)>3;
+
+34.
+select department_id,to_char(hire_date,'YYYY'),count(employee_id)
+from employees
+group by department_id,to_char(hire_date,'YYYY');
+
+35.
+select e.department_id,d.department_name
+from employees e join departments d
+on e.department_id=d.department_id
+group by e.department_id, e.manager_id,d.department_name
+having count(e.manager_id)>5;
+
+36.
+update EMPLOYEES
+set salary=8000
+where employee_id=115 and salary<6000;
+
+37.
+INSERT INTO EMPLOYEES
+values(69,'Pratik','Vamja','vamja','555.333.1111','23-DEC-2019','IT_PROG',33000,0.2,100,90);
+
+38.
+DELETE
+from departments
+where department_id=270;
+
+39.
+update employees
+set job_id='IT_PROG'
+WHERE EMPLOYEE_ID=110 and department_id=10 and job_id not like 'IT%';
+
+40.
+insert into departments
+values(270,'random',120,(select location_id from locations where city='Tokyo'));
+
