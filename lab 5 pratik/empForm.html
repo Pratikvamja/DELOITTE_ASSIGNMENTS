@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>employee form</title>
+</head>
+<body>
+	<form>
+<table border="3px" style="background: cyan">
+	<tr>
+		<td> Name</td>
+		<td><input type="text" name="ename" maxlength="20"></td>
+	</tr>
+
+	<tr>
+		<td> Employee Code</td>
+		<td><input type="text" name="ecode" maxlength="4"></td>
+	</tr>
+
+	<tr>
+		<td> department</td>
+		<td>
+			<input type="radio" name="edept" value="Admin">Admin
+			<br>
+			<input type="radio" name="edept" value="HR">HR
+			<br>
+			<input type="radio" name="edept" value="Technical">Technical
+			<br>
+			<input type="radio" name="edept" value="Accounts">Accounts
+		</td>
+	</tr>
+
+	<tr>
+		<td> date of joining</td>
+		<td>
+			<table>
+				<tr>
+					<input type="date" name="date">
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td> Address</td>
+        <td><textarea rows="5"></textarea></td>
+	</tr>
+
+
+	<tr>
+		<td>Training Program attended</td>
+		<td><input type="checkbox" name="lang">
+        HTML/DHTML<br>
+        <input type="checkbox" name="lang">
+        JAVA<br>
+        <input type="checkbox" name="lang">
+        Client/Server<br>
+        <input type="checkbox" name="lang">
+        .NET</td>
+	</tr>
+
+
+	<tr>
+		<td> Training program need to attend</td>
+		<td>
+            <select>
+                <option>JavaScript</option>
+                <option>JSP</option>
+                <option>Cloud</option>
+                <option>web services</option>
+            </select>
+        </td>
+	</tr>
+
+	<tr>
+		<td> Send the information to </td>
+		<td><a href='mailto:empinfo@capgemini.com'>
+            empinfo@capgemini.com</a></td>
+	</tr>
+
+</table>
+</form>
+</body>
+</html>
